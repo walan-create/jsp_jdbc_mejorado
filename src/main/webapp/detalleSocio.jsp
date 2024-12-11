@@ -37,7 +37,7 @@
             //CARGA DEL DRIVER Y PREPARACIÓN DE LA CONEXIÓN CON LA BBDD
             //						v---------UTILIZAMOS LA VERSIÓN MODERNA DE LLAMADA AL DRIVER, no deprecado
             Class.forName("com.mysql.cj.jdbc.Driver");
-            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/baloncesto", "root", "4535");
+            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/baloncesto", "root", "secret");
 
 
 //>>>>>>NO UTILIZAR STATEMENT EN QUERIES PARAMETRIZADAS
@@ -91,7 +91,10 @@
             </td>
         </tr>
     </table>
-
+    <br>
+    <a href="index.jsp">Volver al Home</a>
+<%
+    %>
 
 <%
 
@@ -99,7 +102,9 @@
 
                 %>
                     <span>No existe socio con id <%=socioID %></span>
-                <%
+                    <br>
+                    <a href="index.jsp">Volver al Home</a>
+<%
             }
 
 

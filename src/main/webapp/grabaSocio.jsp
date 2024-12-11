@@ -89,7 +89,7 @@
             //CARGA DEL DRIVER Y PREPARACIÓN DE LA CONEXIÓN CON LA BBDD
             //						v---------UTILIZAMOS LA VERSIÓN MODERNA DE LLAMADA AL DRIVER, no deprecado
             Class.forName("com.mysql.cj.jdbc.Driver");
-            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/baloncesto", "root", "user");
+            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/baloncesto", "root", "secret");
 
 
 //>>>>>>NO UTILIZAR STATEMENT EN QUERIES PARAMETRIZADAS
@@ -110,12 +110,11 @@
                     "?)"; //localidad
 
             ps = conn.prepareStatement(sql);
-            int idx = 1;
-            ps.setInt(idx++, numero);
-            ps.setString(idx++, nombre);
-            ps.setInt(idx++, estatura);
-            ps.setInt(idx++, edad);
-            ps.setString(idx++, localidad);
+            ps.setInt(1, numero);
+            ps.setString(2, nombre);
+            ps.setInt(3, estatura);
+            ps.setInt(4, edad);
+            ps.setString(5, localidad);
 
             int filasAfectadas = ps.executeUpdate();
             System.out.println("SOCIOS GRABADOS:  " + filasAfectadas);
